@@ -1,0 +1,19 @@
+version: "3.7"
+
+
+services:
+
+  phlasch-server:
+    image: phlasch-server
+    ports:
+      - 8080:8080
+    networks:
+      - phlasch-network
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+
+
+networks:
+  phlasch-network:
