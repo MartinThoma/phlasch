@@ -22,14 +22,14 @@ DB_DIALECT = '{backend}{plus}{driver}'.format(
     plus='+' if DB_DRIVER else '',
     driver=DB_DRIVER,
 )
-DB_AUTH = '{user}{column}{password}'.format(
+DB_AUTH = '{user}{colon}{password}'.format(
     user=DB_USER,
-    column=':' if DB_PASSWORD else '',
+    colon=':' if DB_PASSWORD else '',
     password=DB_PASSWORD,
 )
 DB_ADDRESS = '{host}{colon}{port}'.format(
     host=DB_HOST,
-    column=':' if DB_PORT else '',
+    colon=':' if DB_PORT else '',
     port=DB_PORT if DB_PORT else '',
 )
 
