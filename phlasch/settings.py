@@ -34,9 +34,10 @@ DB_ADDRESS = '{host}{colon}{port}'.format(
 # either set this directly or it will be set indirectly
 DB_URL = get_env_string(
     'PHLASCH_DB_URL',
-    default='{dialect}://{auth}@{address}/{database}'.format(
+    default='{dialect}://{auth}{at}{address}/{database}'.format(
         dialect=DB_DIALECT,
         auth=DB_AUTH,
+        at='@' if DB_AUTH and DB_ADDRESS else '',
         address=DB_ADDRESS,
         database=DB_NAME,
     )
