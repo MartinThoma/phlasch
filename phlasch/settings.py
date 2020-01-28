@@ -1,3 +1,4 @@
+from urllib.parse import quote_plus
 from utils import get_env_bool, get_env_string, get_env_int
 
 
@@ -15,6 +16,9 @@ DB_PASSWORD = get_env_string('PHLASCH_DB_PASSWORD', default='')
 DB_HOST = get_env_string('PHLASCH_DB_HOST', default='localhost')
 DB_PORT = get_env_int('PHLASCH_DB_PORT', default=5432)
 DB_NAME = get_env_string('PHLASCH_DB_NAME', default='postgres')
+
+# quote password so that it can be passed in a url
+DB_PASSWORD = quote_plus(DB_PASSWORD)
 
 # calculate intermediary database settings
 DB_DIALECT = '{backend}{plus}{driver}'.format(
