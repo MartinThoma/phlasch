@@ -11,8 +11,6 @@ DB_PASSWORD = get_env_string('PHLASCH_DB_PASSWORD', default='')
 DB_HOST = get_env_string('PHLASCH_DB_HOST', default='localhost')
 DB_PORT = get_env_int('PHLASCH_DB_PORT', default=5432)
 DB_NAME = get_env_string('PHLASCH_DB_NAME', default='postgres')
-DB_MIN_SIZE = get_env_int('PHLASCH_DB_MIN_SIZE', default=1)
-DB_MAX_SIZE = get_env_int('PHLASCH_DB_MAX_SIZE', default=5)
 
 # calculate intermediary database settings
 DB_DIALECT = '{backend}{plus}{driver}'.format(
