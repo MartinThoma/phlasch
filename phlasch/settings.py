@@ -6,6 +6,7 @@ from utils import get_env_bool, get_env_string, get_env_int
 
 DEBUG = get_env_bool('PHLASCH_DEBUG', default=False)
 
+
 # ------------------------------------------------------------------- database
 
 # get database settings from environment variables
@@ -48,3 +49,6 @@ DB_URL = get_env_string(
         database=DB_NAME,
     )
 )
+
+# the generated engine's key in app
+DB_ENGINE = get_env_string('PHLASCH_DB_ENGINE', default='phlasch')

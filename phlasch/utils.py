@@ -1,6 +1,8 @@
 import os
 
 
+# ----------------------------------------------- environment variable getters
+
 def get_env_string(key, default=''):
     return os.environ.get(key, default=default)
 
