@@ -1,6 +1,7 @@
 from aiohttp.web import Application, run_app
-from routes import setup_routes
+from configure import setup_app
+
 
 app = Application()
-setup_routes(app)
+setup_app(app)
 run_app(app)
