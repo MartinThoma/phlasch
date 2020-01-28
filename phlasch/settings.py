@@ -1,5 +1,9 @@
-from utils import get_env_string, get_env_int
+from utils import get_env_bool, get_env_string, get_env_int
 
+
+# -------------------------------------------------------------------- general
+
+DEBUG = get_env_bool('PHLASCH_DEBUG', default=False)
 
 # ------------------------------------------------------------------- database
 
