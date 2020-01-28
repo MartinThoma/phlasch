@@ -9,7 +9,7 @@ FROM python:3.8-alpine AS builder
 
 WORKDIR /app
 
-RUN apk add --no-cache build-base
+RUN apk add --no-cache build-base postgresql-dev
 
 RUN python -m venv venv
 
