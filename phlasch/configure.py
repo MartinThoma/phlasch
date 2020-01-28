@@ -1,11 +1,11 @@
-import aiopg
+from aiopg.sa import create_engine
 from settings import DB_URL, DB_ENGINE
 
 
 # ---------------------------------------------------- database configurations
 
 async def start_db(app):
-    engine = await aiopg.sa.create_engine(DB_URL)
+    engine = await create_engine(DB_URL)
     app[DB_ENGINE] = engine
 
 
