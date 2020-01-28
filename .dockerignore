@@ -140,3 +140,6 @@ dmypy.json
 Dockerfile
 .dockerignore
 docker-compose.yml
+
+# docker volumes
+volumes/
