@@ -143,3 +143,7 @@ docker-compose.yml
 
 # docker volumes
 volumes/
+
+# commands to start/stop dev swarm
+start-dev-swarm.sh
+stop-dev-swarm.sh
