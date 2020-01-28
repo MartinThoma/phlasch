@@ -36,6 +36,9 @@ FROM python:3.8-alpine
 # set runtime working directory
 WORKDIR /app
 
+# install runtime dependencies
+RUN apk add --no-cache postgresql-libs
+
 # copy built packages
 COPY --from=builder /app .
 
