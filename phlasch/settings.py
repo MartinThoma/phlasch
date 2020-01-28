@@ -30,7 +30,7 @@ DB_AUTH = '{user}{column}{password}'.format(
 DB_ADDRESS = '{host}{colon}{port}'.format(
     host=DB_HOST,
     column=':' if DB_PORT else '',
-    port=DB_PORT,
+    port=DB_PORT if DB_PORT else '',
 )
 
 # either set this directly or it will be set indirectly
