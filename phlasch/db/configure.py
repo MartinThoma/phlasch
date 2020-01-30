@@ -1,5 +1,5 @@
 from aiopg.sa import create_engine
-from phlasch.core.settings import DB_URL, SA_ENGINE
+from phlasch.db.settings import DB_URL, SA_ENGINE
 
 
 # ------------------------------------------------------------------- database

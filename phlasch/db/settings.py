@@ -5,13 +5,13 @@ from phlasch.utils import get_env_string, get_env_int
 # ------------------------------------------------------------------- database
 
 # get database settings from environment variables
-DB_BACKEND = get_env_string('PHLASCH_CORE_DB_BACKEND', default='postgresql')
-DB_DRIVER = get_env_string('PHLASCH_CORE_DB_DRIVER', default='')
-DB_USER = get_env_string('PHLASCH_CORE_DB_USER', default='postgres')
-DB_PASSWORD = get_env_string('PHLASCH_CORE_DB_PASSWORD', default='')
-DB_HOST = get_env_string('PHLASCH_CORE_DB_HOST', default='localhost')
-DB_PORT = get_env_int('PHLASCH_CORE_DB_PORT', default=5432)
-DB_NAME = get_env_string('PHLASCH_CORE_DB_NAME', default='postgres')
+DB_BACKEND = get_env_string('PHLASCH_DB_BACKEND', default='postgresql')
+DB_DRIVER = get_env_string('PHLASCH_DB_DRIVER', default='')
+DB_USER = get_env_string('PHLASCH_DB_USER', default='postgres')
+DB_PASSWORD = get_env_string('PHLASCH_DB_PASSWORD', default='')
+DB_HOST = get_env_string('PHLASCH_DB_HOST', default='localhost')
+DB_PORT = get_env_int('PHLASCH_DB_PORT', default=5432)
+DB_NAME = get_env_string('PHLASCH_DB_NAME', default='postgres')
 
 # quote password so that it can be passed in a url
 DB_PASSWORD = quote_plus(DB_PASSWORD)
@@ -36,7 +36,7 @@ DB_ADDRESS = '{host}{colon}{port}'.format(
 # get database url used by sqlalchemy from environment variables
 # if not set, it will be set automatically
 DB_URL = get_env_string(
-    'PHLASCH_CORE_DB_URL',
+    'PHLASCH_DB_URL',
     default='{dialect}://{auth}{at}{address}/{database}'.format(
         dialect=DB_DIALECT,
         auth=DB_AUTH,
@@ -50,4 +50,4 @@ DB_URL = get_env_string(
 # ------------------------------------------------------------------------ app
 
 # get the app's sqlalchemy engine key from environment variables
-SA_ENGINE = get_env_string('PHLASCH_CORE_SA_ENGINE', default='phlasch')
+SA_ENGINE = get_env_string('PHLASCH_SA_ENGINE', default='phlasch')

@@ -5,8 +5,8 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from phlasch.core.settings import DB_URL
-from phlasch.core.db import metadata
+from phlasch.db.settings import DB_URL
+from phlasch.db.meta import metadata
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

@@ -32,6 +32,10 @@ def main():
         help='make migrations',
     )
     makemigrations_parser.add_argument(
+        'app', type=str,
+        help='the migration app',
+    )
+    makemigrations_parser.add_argument(
         'message', type=str,
         help='the migration message',
     )
@@ -49,7 +53,7 @@ def main():
     if args.action == 'run':
         run()
     elif args.action == 'makemigrations':
-        makemigrations(args.message)
+        makemigrations(args.app, args.message)
     elif args.action == 'migrate':
         migrate()
 

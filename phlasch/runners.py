@@ -1,8 +1,8 @@
 from aiohttp.web import Application, run_app
-from phlasch.core.configure import configure as configure_core
+from phlasch.db.configure import configure as configure_db
 
 
 def run():
     app = Application()
-    configure_core(app)
+    configure_db(app)
     run_app(app)

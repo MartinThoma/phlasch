@@ -1,8 +1,5 @@
 import sqlalchemy as sa
-
-
-# the metadata to be used by tables
-metadata = sa.MetaData()
+from phlasch.db.meta import metadata
 
 
 # link table
