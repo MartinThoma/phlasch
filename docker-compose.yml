@@ -20,6 +20,8 @@ services:
 
   server:
     image: phlasch-server
+    volumes:
+      - ./phlasch:/app/phlasch
     ports:
       - 8080:8080
     networks:
