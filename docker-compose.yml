@@ -25,12 +25,12 @@ services:
     networks:
       - network
     environment:
-      PHLASCH_DB_BACKEND: postgresql
-      PHLASCH_DB_USER: phlasch
-      PHLASCH_DB_PASSWORD: phlasch
-      PHLASCH_DB_HOST: database
-      PHLASCH_DB_PORT: 5432
-      PHLASCH_DB_NAME: phlasch
+      PHLASCH_CORE_DB_BACKEND: postgresql
+      PHLASCH_CORE_DB_USER: phlasch
+      PHLASCH_CORE_DB_PASSWORD: phlasch
+      PHLASCH_CORE_DB_HOST: database
+      PHLASCH_CORE_DB_PORT: 5432
+      PHLASCH_CORE_DB_NAME: phlasch
     deploy:
       replicas: 1
       restart_policy:
