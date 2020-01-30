@@ -7,7 +7,6 @@ def makemigrations(app, name):
         '-c', path.join(path.dirname(__file__), 'db', 'alembic.ini'),
         'revision',
         '--version-path', path.join(path.dirname(__file__), app, 'versions'),
-        '--autogenerate',
         '-m', name,
     ])
 

@@ -1,5 +1,5 @@
-from sqlalchemy import MetaData
+import sqlalchemy as sa
 
 
 # the metadata to be used by tables
-metadata = MetaData()
+metadata = sa.MetaData()
