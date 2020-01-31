@@ -26,13 +26,15 @@ async def shorten(request, data):
         shortcut = convert_base(pk)
         await update_link_shortcut(conn, pk, shortcut)
 
-        # calculate shortener origin
-        if SHORTENER_ORIGIN:
-            origin = SHORTENER_ORIGIN
-        else:
-            origin = f'{request.scheme}://{request.host}'
+    # calculate shortener origin
+    if SHORTENER_ORIGIN:
+        origin = SHORTENER_ORIGIN
+    else:
+        origin = f'{request.scheme}://{request.host}'
 
-        # return shortened url
-        return web.json_response({
-            'shortcut': f'{origin}/{shortcut}',
-        })
+    # return shortened url
+    return web.json_response({
+        'url': f'{origin}/{shortcut}',
+        'origin': origin,
+        'shortcut': shortcut,
+    })
