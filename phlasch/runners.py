@@ -5,10 +5,13 @@ from phlasch.stats.configure import configure as configure_stats
 from phlasch.redirector.configure import configure as configure_redirector
 
 
-def run():
+def run(app_name):
     app = Application()
     configure_db(app)
-    configure_shortener(app)
-    configure_stats(app)
-    configure_redirector(app)
+    if app_name in ('all', 'shortener',):
+        configure_shortener(app)
+    if app_name in ('all', 'stats',):
+        configure_stats(app)
+    if app_name in ('all', 'redirector',):
+        configure_redirector(app)
     run_app(app)

@@ -19,10 +19,15 @@ def main():
     )
 
     # run subparser
-    subparsers.add_parser(
+    run_parser = subparsers.add_parser(
         'run',
-        description='run all apps.',
-        help='run all apps',
+        description='run app.',
+        help='run app',
+    )
+    run_parser.add_argument(
+        'app', type=str,
+        choices=['all', 'shortener', 'stats', 'redirector'],
+        help='the app to run',
     )
 
     # makemigrations subparser
@@ -55,7 +60,7 @@ def main():
     args = parser.parse_args()
 
     if args.action == 'run':
-        run()
+        run(args.app)
     elif args.action == 'makemigrations':
         makemigrations(args.app, args.message)
     elif args.action == 'migrate':
