@@ -22,7 +22,6 @@ def upgrade():
         sa.Column(
             'id',
             sa.Integer,
-            sa.Sequence('phlasch_link_id_seq'),
             primary_key=True,
         ),
         sa.Column(
