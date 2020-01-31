@@ -27,9 +27,8 @@ async def update_link_shortcut(conn, pk, shortcut):
     await conn.execute(update)
 
 
-async def update_link_visits(conn, id):
+async def update_link_visits(conn, pk):
     update = link.update().values(
         visits=link.c.visits + 1,
-    ).where(link.c.id == id)
-    cursor = await conn.execute(update)
-    return cursor
+    ).where(link.c.id == pk)
+    await conn.execute(update)
