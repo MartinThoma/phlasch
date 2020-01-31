@@ -11,7 +11,8 @@ async def create_link(conn, address):
 async def list_links(conn):
     select = link.select()
     cursor = await conn.execute(select)
-    return cursor
+    rows = await cursor.fetchall()
+    return [dict(row) for row in rows] if rows else []
 
 
 async def retrieve_link(conn, shortcut):

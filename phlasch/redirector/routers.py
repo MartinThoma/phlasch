@@ -3,5 +3,9 @@ from phlasch.redirector.views import redirect
 
 
 routes = [
-    web.get('/{shortcut}', redirect, name='redirect'),
+    web.get(
+        '/{shortcut}',
+        redirect,
+        name='redirect',
+    ),
 ]

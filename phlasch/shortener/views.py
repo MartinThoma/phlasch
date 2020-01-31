@@ -20,7 +20,7 @@ async def shorten(request):
     address = data.get('address')
     if not address:
         return web.json_response({
-            'address': 'this field can not be blank.',
+            'address': 'this field is required.',
         }, status=400)
     if not validate_url(address):
         return web.json_response({
