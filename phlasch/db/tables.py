@@ -1,10 +1,13 @@
 import sqlalchemy as sa
-from phlasch.db.meta import metadata
+
+
+# metadata to be used by tables
+metadata = sa.MetaData()
 
 
 # link table
 link = sa.Table(
-    'phlasch_link',
+    'phlasch_db_link',
     metadata,
     sa.Column(
         'id',

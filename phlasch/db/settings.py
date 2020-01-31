@@ -50,4 +50,4 @@ DB_URL = get_env_string(
 # ------------------------------------------------------------------------ app
 
 # get the app's sqlalchemy engine key from environment variables
-SA_ENGINE = get_env_string('PHLASCH_SA_ENGINE', default='phlasch')
+DB_ENGINE = get_env_string('PHLASCH_DB_ENGINE', default='phlasch')

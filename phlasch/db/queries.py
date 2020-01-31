@@ -1,4 +1,4 @@
-from phlasch.core.tables import link
+from phlasch.db.tables import link
 
 
 async def create_link(conn, address):

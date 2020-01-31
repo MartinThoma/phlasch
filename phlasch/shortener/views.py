@@ -1,7 +1,7 @@
 from json.decoder import JSONDecodeError
 from aiohttp import web
-from phlasch.db.settings import SA_ENGINE
-from phlasch.core.queries import create_link, update_link_shortcut
+from phlasch.db.settings import DB_ENGINE
+from phlasch.db.queries import create_link, update_link_shortcut
 from phlasch.shortener.validators import validate_url
 from phlasch.shortener.utils import convert_base
 from phlasch.shortener.settings import SHORTENER_ORIGIN
@@ -28,7 +28,7 @@ async def shorten(request):
         }, status=400)
 
     # insert into database
-    engine = request.app[SA_ENGINE]
+    engine = request.app[DB_ENGINE]
     async with engine.acquire() as conn:
         row = await create_link(conn, address)
         pk = row['id']

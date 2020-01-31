@@ -1,6 +1,6 @@
 import argparse
 from phlasch.runners import run
-from phlasch.migrations import makemigrations, migrate
+from phlasch.migrators import makemigrations, migrate
 
 
 def main():
@@ -33,7 +33,7 @@ def main():
     )
     makemigrations_parser.add_argument(
         'app', type=str,
-        help='the migration app',
+        help='the app to make the migrations for',
     )
     makemigrations_parser.add_argument(
         'message', type=str,
@@ -41,10 +41,14 @@ def main():
     )
 
     # migrate subparser
-    subparsers.add_parser(
+    migrate_parser = subparsers.add_parser(
         'migrate',
         description='migrate.',
         help='migrate',
+    )
+    migrate_parser.add_argument(
+        'app', type=str,
+        help='the app to migrate',
     )
 
     # parse args
@@ -55,7 +59,7 @@ def main():
     elif args.action == 'makemigrations':
         makemigrations(args.app, args.message)
     elif args.action == 'migrate':
-        migrate()
+        migrate(args.app)
 
 
 if __name__ == '__main__':

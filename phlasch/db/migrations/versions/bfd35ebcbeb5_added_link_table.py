@@ -18,7 +18,7 @@ depends_on = None
 
 def upgrade():
     op.create_table(
-        'phlasch_link',
+        'phlasch_db_link',
         sa.Column(
             'id',
             sa.Integer,
@@ -47,4 +47,4 @@ def upgrade():
 
 
 def downgrade():
-    op.drop_table('phlasch_link')
+    op.drop_table('phlasch_db_link')

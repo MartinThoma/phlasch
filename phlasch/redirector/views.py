@@ -1,6 +1,6 @@
 from aiohttp import web
-from phlasch.db.settings import SA_ENGINE
-from phlasch.core.queries import retrieve_link, update_link_visits
+from phlasch.db.settings import DB_ENGINE
+from phlasch.db.queries import retrieve_link, update_link_visits
 
 
 async def redirect(request):
@@ -10,7 +10,7 @@ async def redirect(request):
         raise web.HTTPNotFound()
 
     # retrieve from database
-    engine = request.app[SA_ENGINE]
+    engine = request.app[DB_ENGINE]
     async with engine.acquire() as conn:
         row = await retrieve_link(conn, shortcut)
         if row:
