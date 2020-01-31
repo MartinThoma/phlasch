@@ -14,7 +14,7 @@ async def redirect(request):
     async with engine.acquire() as conn:
         row = await retrieve_link(conn, shortcut)
         if row:
-            update_link_visits(conn, row['id'])
+            await update_link_visits(conn, row['id'])
 
     # not found
     if not row:
