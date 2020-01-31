@@ -1,3 +1,4 @@
+from json.decoder import JSONDecodeError
 from aiohttp import web
 from phlasch.db.settings import SA_ENGINE
 from phlasch.core.queries import create_link, update_link_shortcut
@@ -6,8 +7,16 @@ from phlasch.shortener.utils import convert_base
 from phlasch.shortener.settings import SHORTENER_ORIGIN
 
 
-async def shorten(request, data):
-    # validate data
+async def shorten(request):
+    # retrieve json data
+    try:
+        data = await request.json()
+    except JSONDecodeError:
+        return web.json_response({
+            'non_field_errors': 'json data must be provided.',
+        }, status=400)
+
+    # validate address
     address = data.get('address')
     if not address:
         return web.json_response({
