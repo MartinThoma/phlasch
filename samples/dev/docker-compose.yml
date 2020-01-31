@@ -19,9 +19,9 @@ services:
         condition: on-failure
 
   server:
-    image: phlasch-server
+    image: phlasch-server:dev
     volumes:
-      - ./phlasch:/app/phlasch
+      - ../../phlasch:/app/phlasch
     ports:
       - 8080:8080
     networks:
