@@ -5,19 +5,20 @@ async def create_link(conn, address):
     insert = link.insert().values(address=address)
     cursor = await conn.execute(insert)
     row = await cursor.fetchone()
-    return dict(row)
+    return dict(row) if row else None
 
 
-async def list_links(conn, id):
+async def list_links(conn):
     select = link.select()
     cursor = await conn.execute(select)
     return cursor
 
 
-async def retrieve_link(conn, id):
-    select = link.select().where(link.c.id == id)
+async def retrieve_link(conn, shortcut):
+    select = link.select().where(link.c.shortcut == shortcut)
     cursor = await conn.execute(select)
-    return cursor
+    row = await cursor.fetchone()
+    return dict(row) if row else None
 
 
 async def update_link_shortcut(conn, pk, shortcut):

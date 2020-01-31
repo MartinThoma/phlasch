@@ -4,6 +4,10 @@ from aiohttp import web
 
 @web.middleware
 async def jsoner(request, handler):
+    if request.method not in ('POST', 'PUT'):
+        response = await handler(request)
+        return response
+
     try:
         data = await request.json()
         response = await handler(request, data)
