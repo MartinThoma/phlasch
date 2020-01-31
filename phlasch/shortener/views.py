@@ -3,6 +3,7 @@ from phlasch.db.settings import SA_ENGINE
 from phlasch.core.queries import create_link, update_link_shortcut
 from phlasch.shortener.validators import validate_url
 from phlasch.shortener.utils import convert_base
+from phlasch.shortener.settings import SHORTENER_ORIGIN
 
 
 async def shorten(request, data):
@@ -25,6 +26,13 @@ async def shorten(request, data):
         shortcut = convert_base(pk)
         await update_link_shortcut(conn, pk, shortcut)
 
+        # calculate shortener origin
+        if SHORTENER_ORIGIN:
+            origin = SHORTENER_ORIGIN
+        else:
+            origin = f'{request.scheme}://{request.host}'
+
+        # return shortened url
         return web.json_response({
-            'shortcut': shortcut,
+            'shortcut': f'{origin}/{shortcut}',
         })

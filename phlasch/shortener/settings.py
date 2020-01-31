@@ -13,4 +13,16 @@ SHORTENER_BASE = get_env_string(
 # --------------------------------------------------------------------- routes
 
 # get shortener url from environment variables
-SHORTENER_URL = get_env_string('PHLASCH_SHORTENER_URL', default='shorten')
+SHORTENER_URL = get_env_string(
+    'PHLASCH_SHORTENER_URL',
+    default='shorten',
+)
+
+
+# ---------------------------------------------------------------------- views
+
+# get shortener origin from environment variables
+SHORTENER_ORIGIN = get_env_string(
+    'PHLASCH_SHORTENER_ORIGIN',
+    default='',
+)
