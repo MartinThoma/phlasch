@@ -33,6 +33,11 @@ services:
       PHLASCH_DB_HOST: database
       PHLASCH_DB_PORT: 5432
       PHLASCH_DB_NAME: phlasch
+      PHLASCH_SHORTENER_BASE: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+      PHLASCH_SHORTENER_SHORTEN_URL: shortener/shorten
+      PHLASCH_SHORTENER_ORIGIN: http://localhost:8080
+      PHLASCH_STATS_LIST_URL: stats/list
+      PHLASCH_STATS_RETRIEVE_URL: stats/retrieve
     deploy:
       replicas: 1
       restart_policy:
