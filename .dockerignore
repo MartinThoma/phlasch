@@ -141,5 +141,9 @@ Dockerfile
 .dockerignore
 docker-compose.yml
 
+# travis configs
+.travis.yml
+travis_deploy.sh
+
 # deployment samples
 samples/

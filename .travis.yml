@@ -1,0 +1,23 @@
+services:
+  - docker
+
+git:
+  depth: 3
+
+branches:
+  only:
+    - master
+    - /^\d+\.\d+\.\d+$/
+
+jobs:
+  include:
+    - name: "Build & Push Image"
+      before_install: skip
+      install: skip
+      before_script: skip
+      script: docker build -t "$DOCKER_USERNAME/$DOCKER_IMAGE" .
+      deploy:
+        provider: script
+        script: bash travis_deploy.sh
+        on:
+          tags: true
