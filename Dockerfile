@@ -12,21 +12,19 @@ FROM python:3.8-alpine AS builder
 WORKDIR /app
 
 # install build dependencies
-RUN apk add --no-cache build-base postgresql-dev
+RUN apk add --no-cache build-base postgresql-dev libffi-dev
 
 # built packages to be copied over
 RUN python -m venv venv
 
 # update pip
-RUN venv/bin/pip install --upgrade pip setuptools
+RUN venv/bin/pip install --upgrade pip setuptools wheel
 
-# copy requirements
-COPY requirements.txt .
+# copy setup.py
+COPY setup.py .
 
 # install requirements
-RUN venv/bin/pip install --trusted-host pypi.python.org \
-                         --no-cache-dir \
-                         -r requirements.txt
+RUN venv/bin/pip install --no-cache-dir .
 
 # -------------------------------------------------------------- release stage
 
