@@ -148,5 +148,9 @@ docker-compose.yml
 .travis.yml
 travis_deploy.sh
 
+# tests
+tests/
+run-tests.sh
+
 # deployment samples
 samples/
