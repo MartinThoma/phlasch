@@ -2,12 +2,14 @@ import setuptools
 import warnings
 from os import getenv
 
+
 try:
     with open('./.github/README.md', 'r') as fh:
         long_description = fh.read()
 except FileNotFoundError:
     warnings.warn('README.md could not be found!')
     long_description = ''
+
 
 install_requires = [
     'aiohttp[speedups]',
