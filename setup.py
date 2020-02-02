@@ -1,4 +1,5 @@
 import setuptools
+from os import getenv
 
 
 with open('./.github/README.md', 'r') as fh:
@@ -16,7 +17,7 @@ install_requires = [
 
 setuptools.setup(
     name='phlasch-server',
-    version='',
+    version=getenv('TRAVIS_TAG', '0.0.0'),
     description='a url shortener app/lib.',
     long_description=long_description,
     long_description_content_type='text/markdown',
