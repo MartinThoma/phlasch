@@ -43,15 +43,15 @@ When you install Phlasch you get the following apps:
 - DB: to store the links.
 - Shortener: to shorten the links.
 - Redirector: to redirect to the links.
-- Stats: to get some stats about the links.
+- Stats: to get the stats of the links.
 
 You can configure each app using its special environment variables, then you
 can call its runner to run it.
 
 ### DB
 
-DB is the app which stores all the links. it uses the following
-environment variables:
+DB is the app which stores the links.
+it uses the following environment variables:
 
 - **DB_BACKEND**
 
@@ -120,8 +120,8 @@ environment variables:
 
 ### Shortener
 
-Shortener is the app which shortens all the links. it uses the following
-environment variables:
+Shortener is the app which shortens the links.
+it uses the following environment variables:
 
 - **SHORTENER_BASE**
 
@@ -153,3 +153,31 @@ environment variables:
   this to the origin of that host or domain.
 
   *Note*: If empty, it will use the origin of the Shortener host or domain.
+
+### Redirector
+
+Redirector is the app which redirects to the links. it uses no
+environment variables.
+
+### Stats
+
+Stats is the app which is used to get the stats of the links.
+it uses the following environment variables:
+
+- **STATS_LIST_URL**
+
+  The url on which you can list the stats of all links.
+
+  Default: stats/list
+
+  *Note*: It is set as a slashed url so that it can't be mistaken with a
+  shortened url.
+
+- **PHLASCH_STATS_RETRIEVE_URL**
+
+  The url on which you can retrieve the stats of a link.
+
+  Default: stats/retrieve
+
+  *Note*: It is set as a slashed url so that it can't be mistaken with a
+  shortened url.
