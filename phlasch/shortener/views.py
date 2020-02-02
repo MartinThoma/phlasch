@@ -1,5 +1,7 @@
+from os import path
 from json.decoder import JSONDecodeError
 from aiohttp import web
+from aiohttp_swagger import swagger_path
 from phlasch.db.settings import DB_ENGINE
 from phlasch.db.queries import create_link, update_link_shortcut
 from phlasch.shortener.validators import validate_url
@@ -7,6 +9,7 @@ from phlasch.shortener.utils import convert_base
 from phlasch.shortener.settings import SHORTENER_ORIGIN
 
 
+@swagger_path(path.join(path.dirname(__file__), 'swagger', 'shorten.yaml'))
 async def shorten(request):
     # retrieve json data
     try:
@@ -46,4 +49,4 @@ async def shorten(request):
         'url': f'{origin}/{shortcut}',
         'origin': origin,
         'shortcut': shortcut,
-    })
+    }, status=201)

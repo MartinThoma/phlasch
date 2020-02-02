@@ -1,8 +1,11 @@
+from os import path
 from aiohttp import web
+from aiohttp_swagger import swagger_path
 from phlasch.db.settings import DB_ENGINE
 from phlasch.db.queries import retrieve_link, update_link_visits
 
 
+@swagger_path(path.join(path.dirname(__file__), 'swagger', 'redirect.yaml'))
 async def redirect(request):
     # validate shortcut
     shortcut = request.match_info.get('shortcut')
