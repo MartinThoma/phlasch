@@ -1,5 +1,7 @@
 #!/bin/sh
-set -o errexit
+
+# no exit on error so that container stops even if test fails
+set +o errexit
 
 random=`uuidgen | sed 's/-//g'`
 
