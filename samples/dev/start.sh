@@ -1,5 +1,7 @@
 #!/bin/sh
+set -o errexit
 
+# list of useful directories
 current_dir=`dirname $0`
 parent_dir=`dirname $current_dir`
 root_dir=`dirname $parent_dir`

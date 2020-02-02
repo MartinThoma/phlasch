@@ -18,6 +18,6 @@ jobs:
       script: docker build -t "$DOCKER_USERNAME/$DOCKER_IMAGE" .
       deploy:
         provider: script
-        script: bash travis_deploy.sh
+        script: sh travis_deploy.sh
         on:
           tags: true
