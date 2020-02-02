@@ -223,11 +223,11 @@ created in that app. Revisions represent the points in which the database
 schema was changed, as a result we can upgrade or downgrade to any revision
 at any time.
 
-So each time Phlasch is installed or is updated, it is a good idea to upgrade
+**Upgrade**
+
+Each time Phlasch is installed or is updated, it is a good idea to upgrade
 to the latest revision (or head) for each database-using app, in the current
 case: only the DB app.
-
-**Upgrade**
 
 To upgrade the DB app to the latest revision (head), run:
 
@@ -242,3 +242,8 @@ INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> bfd35ebcbeb5, added link table
 ```
+
+**Downgrade**
+
+If we encounter any weird database situations after an upgrade we can always
+downgrade to the previous revisions.
