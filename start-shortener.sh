@@ -1,8 +1,8 @@
 #!/bin/sh
 set -o errexit
 
-# migrate database
-python -m phlasch migrate db
+# upgrade database
+python -m phlasch upgrade db head
 
 # run
 gunicorn phlasch.runners:get_shortener_runnable \

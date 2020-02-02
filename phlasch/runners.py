@@ -11,12 +11,18 @@ from phlasch.redirector.configure import configure as configure_redirector
 def get_runnable(app_name):
     app = Application()
     configure_db(app)
-    if app_name in ('all', 'shortener',):
+    if app_name == 'all':
         configure_shortener(app)
-    if app_name in ('all', 'stats',):
         configure_stats(app)
-    if app_name in ('all', 'redirector',):
         configure_redirector(app)
+    elif app_name == 'shortener':
+        configure_shortener(app)
+    elif app_name == 'stats':
+        configure_stats(app)
+    elif app_name == 'redirector':
+        configure_redirector(app)
+    else:
+        raise Exception('app not found!')
     setup_swagger(app)
     return app
 

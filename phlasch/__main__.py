@@ -1,6 +1,6 @@
 import argparse
 from phlasch.runners import run
-from phlasch.migrators import makemigrations, migrate
+from phlasch.migrators import revision, upgrade, downgrade
 
 
 def main():
@@ -12,8 +12,8 @@ def main():
 
     # make command subparsers
     subparsers = parser.add_subparsers(
-        title='actions',
-        description='the actions that can be taken.',
+        title='action',
+        description='the action to take.',
         dest='action',
         required=True,
     )
@@ -26,34 +26,52 @@ def main():
     )
     run_parser.add_argument(
         'app', type=str,
-        choices=['all', 'shortener', 'stats', 'redirector'],
         help='the app to run',
     )
 
-    # makemigrations subparser
-    makemigrations_parser = subparsers.add_parser(
-        'makemigrations',
-        description='make migrations.',
-        help='make migrations',
+    # revision subparser
+    revision_parser = subparsers.add_parser(
+        'revision',
+        description='make revision.',
+        help='make revision',
     )
-    makemigrations_parser.add_argument(
+    revision_parser.add_argument(
         'app', type=str,
-        help='the app to make the migrations for',
+        help='the app to make the revision for',
     )
-    makemigrations_parser.add_argument(
+    revision_parser.add_argument(
         'message', type=str,
-        help='the migration message',
+        help='the revision message',
     )
 
-    # migrate subparser
-    migrate_parser = subparsers.add_parser(
-        'migrate',
-        description='migrate.',
-        help='migrate',
+    # upgrade subparser
+    upgrade_parser = subparsers.add_parser(
+        'upgrade',
+        description='upgrade to revision.',
+        help='upgrade to revision',
     )
-    migrate_parser.add_argument(
+    upgrade_parser.add_argument(
         'app', type=str,
-        help='the app to migrate',
+        help='the app to upgrade',
+    )
+    upgrade_parser.add_argument(
+        'rev', type=str,
+        help='the rev to upgrade to',
+    )
+
+    # downgrade subparser
+    downgrade_parser = subparsers.add_parser(
+        'downgrade',
+        description='downgrade to revision.',
+        help='downgrade to revision',
+    )
+    downgrade_parser.add_argument(
+        'app', type=str,
+        help='the app to downgrade',
+    )
+    downgrade_parser.add_argument(
+        'rev', type=str,
+        help='the rev to downgrade to',
     )
 
     # parse args
@@ -61,10 +79,12 @@ def main():
 
     if args.action == 'run':
         run(args.app)
-    elif args.action == 'makemigrations':
-        makemigrations(args.app, args.message)
-    elif args.action == 'migrate':
-        migrate(args.app)
+    elif args.action == 'revision':
+        revision(args.app, args.message)
+    elif args.action == 'upgrade':
+        upgrade(args.app, args.rev)
+    elif args.action == 'downgrade':
+        upgrade(args.app, args.rev)
 
 
 if __name__ == '__main__':

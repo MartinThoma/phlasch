@@ -2,18 +2,26 @@ from os import path
 from alembic.config import main
 
 
-def makemigrations(app, name):
+def revision(app, message):
     main(argv=[
         '-c', path.join(path.dirname(__file__), 'alembic.ini'),
         '--name', app,
-        'revision', '-m', name,
+        'revision', '-m', message,
         '--autogenerate'
     ])
 
 
-def migrate(app):
+def upgrade(app, rev):
     main(argv=[
         '-c', path.join(path.dirname(__file__), 'alembic.ini'),
         '--name', app,
-        'upgrade', 'head',
+        'upgrade', rev,
+    ])
+
+
+def downgrade(app, rev):
+    main(argv=[
+        '-c', path.join(path.dirname(__file__), 'alembic.ini'),
+        '--name', app,
+        'downgrade', rev,
     ])
