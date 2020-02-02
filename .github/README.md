@@ -56,7 +56,7 @@ DB is the app which stores all the links.
 
 DB uses the following environment variables:
 
-**DB_BACKEND**
+##### DB_BACKEND
 
 The database backend to use. e.g. postgresql, sqlite, etc.
 
@@ -64,7 +64,7 @@ Default: postgresql
 
 *NOTE*: Currently only postgresql is supported due to aiopg support.
 
-**DB_DRIVER**
+##### DB_DRIVER
 
 The database driver to use. e.g. psycopg2, pg8000, etc.
 
@@ -72,37 +72,37 @@ Default: psycopg2
 
 *NOTE*: Currently only psycopg2 is supported due to aiopg support.
 
-**DB_USER**
+##### DB_USER
 
 The database user.
 
 Default: postgres
 
-**DB_PASSWORD**
+##### DB_PASSWORD
 
 The database password.
 
 Default: *nothing*
 
-**DB_HOST**
+##### DB_HOST
 
 The database host.
 
 Default: localhost
 
-**DB_PORT**
+##### DB_PORT
 
 The database port.
 
 Default: 5432
 
-**DB_NAME**
+##### DB_NAME
 
 The database name.
 
 Default: postgres
 
-**DB_URL**
+##### DB_URL
 
 The database url.
 
@@ -111,7 +111,7 @@ Default: *see note*
 *Note*: If set, it will override all the other DB configurations, otherwise
 it will be set automatically using the other DB configurations.
 
-**DB_ENGINE**
+##### DB_ENGINE
 
 The aiohttp app's engine key.
 
