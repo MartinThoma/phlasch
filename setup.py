@@ -23,7 +23,7 @@ install_requires = [
 setuptools.setup(
     name='phlasch-server',
     version=getenv('TRAVIS_TAG', '0.0.0'),
-    description='a url shortener app/lib.',
+    description='A url shortener.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/bbmokhtari/phlasch-server',

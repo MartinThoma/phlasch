@@ -7,13 +7,13 @@ def main():
     # create command parser
     parser = argparse.ArgumentParser(
         'phlasch',
-        description='a url shortener app/lib.',
+        description='A url shortener.',
     )
 
     # make command subparsers
     subparsers = parser.add_subparsers(
-        title='action',
-        description='the action to take.',
+        title='Action',
+        description='The action to take.',
         dest='action',
         required=True,
     )
@@ -21,57 +21,57 @@ def main():
     # run subparser
     run_parser = subparsers.add_parser(
         'run',
-        description='run app.',
-        help='run app',
+        description='Run app.',
+        help='Run app.',
     )
     run_parser.add_argument(
         'app', type=str,
-        help='the app to run',
+        help='The app to run.',
     )
 
     # revision subparser
     revision_parser = subparsers.add_parser(
         'revision',
-        description='make revision.',
-        help='make revision',
+        description='Make revision.',
+        help='Make revision.',
     )
     revision_parser.add_argument(
         'app', type=str,
-        help='the app to make the revision for',
+        help='The app to make the revision for.',
     )
     revision_parser.add_argument(
         'message', type=str,
-        help='the revision message',
+        help='The revision message.',
     )
 
     # upgrade subparser
     upgrade_parser = subparsers.add_parser(
         'upgrade',
-        description='upgrade to revision.',
-        help='upgrade to revision',
+        description='Upgrade to revision.',
+        help='Upgrade to revision.',
     )
     upgrade_parser.add_argument(
         'app', type=str,
-        help='the app to upgrade',
+        help='The app to upgrade.',
     )
     upgrade_parser.add_argument(
         'rev', type=str,
-        help='the rev to upgrade to',
+        help='The rev to upgrade to.',
     )
 
     # downgrade subparser
     downgrade_parser = subparsers.add_parser(
         'downgrade',
-        description='downgrade to revision.',
-        help='downgrade to revision',
+        description='Downgrade to revision.',
+        help='Downgrade to revision.',
     )
     downgrade_parser.add_argument(
         'app', type=str,
-        help='the app to downgrade',
+        help='The app to downgrade.',
     )
     downgrade_parser.add_argument(
         'rev', type=str,
-        help='the rev to downgrade to',
+        help='The rev to downgrade to.',
     )
 
     # parse args
@@ -84,7 +84,7 @@ def main():
     elif args.action == 'upgrade':
         upgrade(args.app, args.rev)
     elif args.action == 'downgrade':
-        upgrade(args.app, args.rev)
+        downgrade(args.app, args.rev)
 
 
 if __name__ == '__main__':
