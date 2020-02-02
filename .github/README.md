@@ -180,3 +180,58 @@ it uses the following environment variables:
 
   *Note*: It is set as a slashed url so that it can't be mistaken with a
   shortened url.
+
+## CLI: Command Line Interface
+
+When the configurations are in place, the command line interface can be used
+effectively.
+
+To see what is available, run the cli with the `-h` option:
+
+``` bash
+python -m phlasch -h
+```
+
+It will print something like this:
+
+```
+usage: phlasch [-h] {run,revision,upgrade,downgrade} ...
+
+A url shortener.
+
+optional arguments:
+  -h, --help            show this help message and exit
+
+Action:
+  The action to take.
+
+  {run,revision,upgrade,downgrade}
+    run                 Run app.
+    revision            Make revision.
+    upgrade             Upgrade to revision.
+    downgrade           Downgrade to revision.
+```
+
+As seen above, the command line interface provides some actions which can be
+taken.
+
+To explore each actions, again, run it with the `-h` option:
+
+``` bash
+python -m phlasch upgrade -h
+```
+
+It will print something like this:
+
+```
+usage: phlasch upgrade [-h] app rev
+
+Upgrade to revision.
+
+positional arguments:
+  app         The app to upgrade.
+  rev         The rev to upgrade to.
+
+optional arguments:
+  -h, --help  show this help message and exit
+```
