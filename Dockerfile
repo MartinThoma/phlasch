@@ -58,4 +58,4 @@ ENV PYTHONDONTWRITEBYTECODE 1
 EXPOSE 8080
 
 # run it!
-CMD ["python", "-m", "phlasch", "run", "all"]
+CMD ["./start-all.sh"]
