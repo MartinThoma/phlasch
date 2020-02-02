@@ -136,12 +136,15 @@ dmypy.json
 .git/
 .gitignore
 
+# github
+.github/
+
 # docker
 Dockerfile
 .dockerignore
 docker-compose.yml
 
-# travis configs
+# travis
 .travis.yml
 travis_deploy.sh
 
