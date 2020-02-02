@@ -109,5 +109,4 @@ environment variables:
   if you are, this is the app key which the database engine is set on after
   creation.
 
-Since DB is the core app for all the other apps, it is ran by default by every
-other app.
+DB has no explicit runners as it is the core app for all the other apps.
