@@ -58,14 +58,14 @@ environment variables:
   The database backend to use. e.g. postgresql, sqlite, etc.
   Default: postgresql
 
-  *NOTE*: Currently only postgresql is supported due to aiopg support.
+  *Note*: Currently only postgresql is supported due to aiopg support.
 
 - DB_DRIVER
 
   The database driver to use. e.g. psycopg2, pg8000, etc.
   Default: psycopg2
 
-  *NOTE*: Currently only psycopg2 is supported due to aiopg support.
+  *Note*: Currently only psycopg2 is supported due to aiopg support.
 
 - DB_USER
 
@@ -105,8 +105,39 @@ environment variables:
   The aiohttp app's engine key.
   Default: phlasch
 
-  *Note*: If you're not using Phlasch as an aiohttp lib don't mind this, but
+  If you're not using Phlasch as an aiohttp lib don't mind this, but
   if you are, this is the app key which the database engine is set on after
   creation.
 
-DB has no explicit runners as it is the core app for all the other apps.
+### Shortener
+
+Shortener is the app which shortens all the links. it uses the following
+environment variables:
+
+- SHORTENER_BASE
+
+  The characters to use in the shortened url.
+  Default: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+  Some people prefer not to use the (O, o, 0), (I, l, 1) or some
+  similar-looking characters at all.
+
+  **Warning**: ONCE SET, DO NOT CHANGE THIS! EVER!
+
+- SHORTENER_SHORTEN_URL
+
+  The url on which you can shorten links.
+  Default: shortener/shorten
+
+  *Note*: It is set as a slashed url so that it can't be mistaken with a
+  shortened url.
+
+- SHORTENER_ORIGIN
+
+  The origin of the shortened url.
+  Default: *nothing*
+
+  In case you want to deploy the Redirector app on another host or domain, set
+  this to the origin of that host or domain.
+
+  *Note*: If empty, it will use the origin of the Shortener host or domain.
