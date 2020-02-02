@@ -215,23 +215,30 @@ Action:
 As seen above, the command line interface provides some actions which can be
 taken.
 
-To explore each actions, again, run it with the `-h` option:
+### Revisions
+
+Phlasch database migrations are being tracked using revisions. Each time the
+database schema is changed in any app by Phlasch developers a revision is
+created in that app. Revisions represent the points in which the database
+schema was changed, as a result we can upgrade or downgrade to any revision
+at any time.
+
+So each time Phlasch is installed or is updated, it is a good idea to upgrade
+to the latest revision (or head) for each database-using app, in the current
+case: only the DB app.
+
+**Upgrade**
+
+To upgrade the DB app to the latest revision (head), run:
 
 ``` bash
-python -m phlasch upgrade -h
+python -m phlasch upgrade db head
 ```
 
 It will print something like this:
 
 ```
-usage: phlasch upgrade [-h] app rev
-
-Upgrade to revision.
-
-positional arguments:
-  app         The app to upgrade.
-  rev         The rev to upgrade to.
-
-optional arguments:
-  -h, --help  show this help message and exit
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running upgrade  -> bfd35ebcbeb5, added link table
 ```
