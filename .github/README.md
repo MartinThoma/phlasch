@@ -53,7 +53,7 @@ can call its runner to run it.
 DB is the app which stores all the links. it uses the following
 environment variables:
 
-- DB_BACKEND
+- **DB_BACKEND**
 
   The database backend to use. e.g. postgresql, sqlite, etc.
 
@@ -61,7 +61,7 @@ environment variables:
 
   *Note*: Currently only postgresql is supported due to aiopg support.
 
-- DB_DRIVER
+- **DB_DRIVER**
 
   The database driver to use. e.g. psycopg2, pg8000, etc.
 
@@ -69,37 +69,37 @@ environment variables:
 
   *Note*: Currently only psycopg2 is supported due to aiopg support.
 
-- DB_USER
+- **DB_USER**
 
   The database user.
 
   Default: postgres
 
-- DB_PASSWORD
+- **DB_PASSWORD**
 
   The database password.
 
   Default: *nothing*
 
-- DB_HOST
+- **DB_HOST**
 
   The database host.
 
   Default: localhost
 
-- DB_PORT
+- **DB_PORT**
 
   The database port.
 
   Default: 5432
 
-- DB_NAME
+- **DB_NAME**
 
   The database name.
 
   Default: postgres
 
-- DB_URL
+- **DB_URL**
 
   The database url.
 
@@ -108,7 +108,7 @@ environment variables:
   *Note*: If set, it will override all the other DB configurations, otherwise
   it will be set automatically using the other DB configurations.
 
-- DB_ENGINE
+- **DB_ENGINE**
 
   The aiohttp app's engine key.
 
@@ -123,7 +123,7 @@ environment variables:
 Shortener is the app which shortens all the links. it uses the following
 environment variables:
 
-- SHORTENER_BASE
+- **SHORTENER_BASE**
 
   The characters to use in the shortened url.
 
@@ -134,7 +134,7 @@ environment variables:
 
   **Warning**: ONCE SET, DO NOT CHANGE THIS! EVER!
 
-- SHORTENER_SHORTEN_URL
+- **SHORTENER_SHORTEN_URL**
 
   The url on which you can shorten links.
 
@@ -143,7 +143,7 @@ environment variables:
   *Note*: It is set as a slashed url so that it can't be mistaken with a
   shortened url.
 
-- SHORTENER_ORIGIN
+- **SHORTENER_ORIGIN**
 
   The origin of the shortened url.
 
