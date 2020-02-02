@@ -195,7 +195,7 @@ python -m phlasch -h
 It will print something like this:
 
 ```
-usage: phlasch [-h] {run,revision,upgrade,downgrade} ...
+usage: phlasch [-h] {run,history,revision,upgrade,downgrade} ...
 
 A url shortener.
 
@@ -205,8 +205,9 @@ optional arguments:
 Action:
   The action to take.
 
-  {run,revision,upgrade,downgrade}
+  {run,history,revision,upgrade,downgrade}
     run                 Run app.
+    history             Log revisions.
     revision            Make revision.
     upgrade             Upgrade to revision.
     downgrade           Downgrade to revision.
@@ -243,7 +244,46 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> bfd35ebcbeb5, added link table
 ```
 
+**History**
+
+To log the revisions of the DB app, run:
+
+``` bash
+python -m phlasch history db
+```
+
+It will print something like this:
+
+```
+Rev: bfd35ebcbeb5 (head)
+Parent: <base>
+Path: /app/phlasch/db/migrations/versions/bfd35ebcbeb5_added_link_table.py
+
+    added link table
+    
+    Revision ID: bfd35ebcbeb5
+    Revises: 
+    Create Date: 2020-01-30 21:29:35.727874+00:00
+
+```
+
 **Downgrade**
 
 If we encounter any weird database situations after an upgrade we can always
 downgrade to the previous revisions.
+
+To downgrade the DB app to the none revision (base), run:
+
+``` bash
+python -m phlasch downgrade db base
+```
+
+It will print something like this:
+
+```
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.runtime.migration] Running downgrade bfd35ebcbeb5 -> , added link table
+```
+
+**WARNING**: SETTING DOWNGRADE TO BASE WILL DELETE EVERYTHING AND DROP ALL TABLES!
