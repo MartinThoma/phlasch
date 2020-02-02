@@ -50,79 +50,64 @@ can call its runner to run it.
 
 ### DB
 
-DB is the app which stores all the links.
+DB is the app which stores all the links. it uses the following
+environment variables:
 
-#### Environment Variables
+- DB_BACKEND
 
-DB uses the following environment variables:
+  The database backend to use. e.g. postgresql, sqlite, etc.
+  Default: postgresql
 
-##### DB_BACKEND
+  *NOTE*: Currently only postgresql is supported due to aiopg support.
 
-The database backend to use. e.g. postgresql, sqlite, etc.
+- DB_DRIVER
 
-Default: postgresql
+  The database driver to use. e.g. psycopg2, pg8000, etc.
+  Default: psycopg2
 
-*NOTE*: Currently only postgresql is supported due to aiopg support.
+  *NOTE*: Currently only psycopg2 is supported due to aiopg support.
 
-##### DB_DRIVER
+- DB_USER
 
-The database driver to use. e.g. psycopg2, pg8000, etc.
+  The database user.
+  Default: postgres
 
-Default: psycopg2
+- DB_PASSWORD
 
-*NOTE*: Currently only psycopg2 is supported due to aiopg support.
+  The database password.
+  Default: *nothing*
 
-##### DB_USER
+- DB_HOST
 
-The database user.
+  The database host.
+  Default: localhost
 
-Default: postgres
+- DB_PORT
 
-##### DB_PASSWORD
+  The database port.
+  Default: 5432
 
-The database password.
+- DB_NAME
 
-Default: *nothing*
+  The database name.
+  Default: postgres
 
-##### DB_HOST
+- DB_URL
 
-The database host.
+  The database url.
+  Default: *see note*
 
-Default: localhost
+  *Note*: If set, it will override all the other DB configurations, otherwise
+  it will be set automatically using the other DB configurations.
 
-##### DB_PORT
+- DB_ENGINE
 
-The database port.
+  The aiohttp app's engine key.
+  Default: phlasch
 
-Default: 5432
-
-##### DB_NAME
-
-The database name.
-
-Default: postgres
-
-##### DB_URL
-
-The database url.
-
-Default: *see note*
-
-*Note*: If set, it will override all the other DB configurations, otherwise
-it will be set automatically using the other DB configurations.
-
-##### DB_ENGINE
-
-The aiohttp app's engine key.
-
-Default: phlasch
-
-*Note*: If you're not using Phlasch as an aiohttp lib don't mind this, but if
-you are, this is the app key which the database engine is set on after
-creation.
-
-#### Runner
+  *Note*: If you're not using Phlasch as an aiohttp lib don't mind this, but
+  if you are, this is the app key which the database engine is set on after
+  creation.
 
 Since DB is the core app for all the other apps, it is ran by default by every
 other app.
-
