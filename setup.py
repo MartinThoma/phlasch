@@ -5,6 +5,15 @@ with open('./.github/README.md', 'r') as fh:
     long_description = fh.read()
 
 
+install_requires = [
+    'aiohttp[speedups]',
+    'aiohttp-swagger[performance]',
+    'aiopg[sa]',
+    'alembic',
+    'gunicorn',
+]
+
+
 setuptools.setup(
     name='phlasch-server',
     version='',
@@ -48,5 +57,6 @@ setuptools.setup(
             "*/swagger/*",
         ],
     },
+    install_requires=install_requires,
     python_requires='>=3.7, <4',
 )
