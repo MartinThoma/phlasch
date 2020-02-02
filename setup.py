@@ -40,5 +40,13 @@ setuptools.setup(
             'tests',
         ],
     ),
-    python_requires='>=3.5, <4',
+    package_data={
+        "phlasch": [
+            "alembic.ini",
+            "*/migrations/*",
+            "*/migrations/versions/*",
+            "*/swagger/*",
+        ],
+    },
+    python_requires='>=3.7, <4',
 )
