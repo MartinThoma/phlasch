@@ -1,6 +1,6 @@
 import argparse
 from phlasch.runners import run
-from phlasch.migrators import revision, upgrade, downgrade
+from phlasch.migrators import history, revision, upgrade, downgrade
 
 
 def main():
@@ -27,6 +27,17 @@ def main():
     run_parser.add_argument(
         'app', type=str,
         help='The app to run.',
+    )
+
+    # history subparser
+    history_parser = subparsers.add_parser(
+        'history',
+        description='Log revisions.',
+        help='Log revisions.',
+    )
+    history_parser.add_argument(
+        'app', type=str,
+        help='The app to log the revisions for.',
     )
 
     # revision subparser
@@ -79,6 +90,8 @@ def main():
 
     if args.action == 'run':
         run(args.app)
+    elif args.action == 'history':
+        history(args.app)
     elif args.action == 'revision':
         revision(args.app, args.message)
     elif args.action == 'upgrade':

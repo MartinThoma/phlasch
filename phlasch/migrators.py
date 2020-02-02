@@ -11,6 +11,15 @@ def revision(app, message):
     ])
 
 
+def history(app):
+    main(argv=[
+        '-c', path.join(path.dirname(__file__), 'alembic.ini'),
+        '--name', app,
+        'history',
+        '--verbose',
+    ])
+
+
 def upgrade(app, rev):
     main(argv=[
         '-c', path.join(path.dirname(__file__), 'alembic.ini'),
