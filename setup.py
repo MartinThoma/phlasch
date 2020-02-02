@@ -21,12 +21,12 @@ install_requires = [
 
 
 setuptools.setup(
-    name='phlasch-server',
+    name='phlasch',
     version=getenv('TRAVIS_TAG', '0.0.0'),
     description='A url shortener.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/bbmokhtari/phlasch-server',
+    url='https://github.com/bbmokhtari/phlasch',
     author='Behzad B. Mokhtari',
     author_email='behzad.public@gmail.com',
     classifiers=[
@@ -46,9 +46,9 @@ setuptools.setup(
     ],
     keywords=' '.join(['url-shortener', 'url-shortener-microservice']),
     project_urls={
-        'Documentation': 'https://github.com/bbmokhtari/phlasch-server',
-        'Source': 'https://github.com/bbmokhtari/phlasch-server',
-        'Tracker': 'https://github.com/bbmokhtari/phlasch-server/issues',
+        'Documentation': 'https://github.com/bbmokhtari/phlasch',
+        'Source': 'https://github.com/bbmokhtari/phlasch',
+        'Tracker': 'https://github.com/bbmokhtari/phlasch/issues',
     },
     packages=setuptools.find_packages(
         exclude=[

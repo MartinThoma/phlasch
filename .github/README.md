@@ -1,4 +1,4 @@
-# phlasch-server
+# phlasch
 
 A url shortener.
 
@@ -8,7 +8,7 @@ If you liked this project please consider giving it a star! ⭐️
 
 ## Goal
 
-phlasch-server is a url shortener. It aims to be easy-to-use, flexible and
+phlasch is a url shortener. It aims to be easy-to-use, flexible and
 performant. As a result of this philosophy, it has been designed to be usable
 as a program, a docker container or an aiohttp library.
 
@@ -30,15 +30,15 @@ as a program, a docker container or an aiohttp library.
    $ pip install --upgrade pip setuptools wheel
    ```
 
-3. Install `phlasch-server` using pip:
+3. Install `phlasch` using pip:
 
    ``` bash
-   $ pip install phlasch-server
+   $ pip install phlasch
    ```
 
 ## Configuration
 
-When you install phlasch-server you get the following apps:
+When you install phlasch you get the following apps:
 
 - shortener: to shorten the links.
 - redirector: to redirect to the links.

@@ -1,4 +1,4 @@
-# Phlasch Server Docker image
+# Phlasch Docker image
 # This is a multi-stage Dockerfile which helps us separate the build
 # from release and not include the OS packages needed to install the
 # requirements. (We can't delete them cause Dockerfile layers are read only)
