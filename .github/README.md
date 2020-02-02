@@ -18,7 +18,7 @@ as a program, a docker container or an aiohttp library.
 
 ## Installation
 
-1. Make sure your OS has the following prerequisites:
+1. Make sure the OS has the following prerequisites:
 
    - build essentials packages (gcc, etc.)
    - postgresql development packages (postgresql-dev, etc.)
@@ -38,15 +38,14 @@ as a program, a docker container or an aiohttp library.
 
 ## Configuration
 
-When you install Phlasch you get the following apps:
+When Phlasch is installed, the following apps are made available:
 
 - DB: to store the links.
 - Shortener: to shorten the links.
 - Redirector: to redirect to the links.
 - Stats: to get the stats of the links.
 
-You can configure each app using its special environment variables, then you
-can call its runner to run it.
+Each app can be configured using its own special environment variables.
 
 ### DB
 
@@ -136,7 +135,7 @@ it uses the following environment variables:
 
 - **PHLASCH_SHORTENER_SHORTEN_URL**
 
-  The url on which you can shorten links.
+  The url on which the users can shorten links.
 
   Default: shortener/shorten
 
@@ -149,7 +148,7 @@ it uses the following environment variables:
 
   Default: *nothing*
 
-  In case you want to deploy the Redirector app on another host or domain, set
+  In case the Redirector app is deployed on another host or domain, set
   this to the origin of that host or domain.
 
   *Note*: If empty, it will use the origin of the Shortener host or domain.
@@ -166,7 +165,7 @@ it uses the following environment variables:
 
 - **PHLASCH_STATS_LIST_URL**
 
-  The url on which you can list the stats of all links.
+  The url on which the users can list the stats of all links.
 
   Default: stats/list
 
@@ -175,7 +174,7 @@ it uses the following environment variables:
 
 - **PHLASCH_STATS_RETRIEVE_URL**
 
-  The url on which you can retrieve the stats of a link.
+  The url on which the users can retrieve the stats of a link.
 
   Default: stats/retrieve
 
