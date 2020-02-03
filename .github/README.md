@@ -18,19 +18,21 @@ as a docker image, a program, or an aiohttp library.
 
 ## Docker
 
+### Unified Deployment
+
 1. Deploy this `docker-compose.yml` file.
 
    ``` docker-compose.yml
    version: "3.7"
-   
+
    services:
-   
+
      database:
        image: postgres
        restart: always
        environment:
          POSTGRES_PASSWORD: postgres
-   
+
      server:
        image: phlasch
        restart: always
@@ -41,9 +43,68 @@ as a docker image, a program, or an aiohttp library.
          PHLASCH_DB_PASSWORD: postgres
    ```
 
-2. Navigate to [Swagger](http://localhost:8080/api/doc)
+2. Navigate to http://localhost:8080/api/doc to see what APIs are available.
 
    ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)
+
+### Divided Deployment
+
+1. Deploy this `docker-compose.yml` file.
+
+   ``` docker-compose.yml
+   version: "3.7"
+
+   services:
+
+     database:
+       image: postgres
+       restart: always
+       environment:
+         POSTGRES_PASSWORD: postgres
+
+     shortener:
+       image: phlasch
+       command: ./start-shortener.sh
+       restart: always
+       ports:
+         - 8080:8080
+       environment:
+         PHLASCH_DB_HOST: database
+         PHLASCH_DB_PASSWORD: postgres
+         PHLASCH_SHORTENER_ORIGIN: http://localhost:9090
+
+     redirector:
+       image: phlasch
+       command: ./start-redirector.sh
+       restart: always
+       ports:
+         - 9090:8080
+       environment:
+         PHLASCH_DB_HOST: database
+         PHLASCH_DB_PASSWORD: postgres
+
+     stats:
+       image: phlasch
+       command: ./start-stats.sh
+       restart: always
+       ports:
+         - 7070:8080
+       environment:
+         PHLASCH_DB_HOST: database
+         PHLASCH_DB_PASSWORD: postgres
+   ```
+
+2. Navigate to http://localhost:8080/api/doc to see what APIs are available.
+
+   ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_shortener.png)
+
+3. Navigate to http://localhost:9090/api/doc to see what APIs are available.
+
+   ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_redirector.png)
+
+4. Navigate to http://localhost:7070/api/doc to see what APIs are available.
+
+   ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_stats.png)
 
 ## Requirements
 
@@ -363,7 +424,7 @@ It will print something like this:
 (Press CTRL+C to quit)
 ```
 
-Now you can navigate to [Swagger](http://localhost:8080/api/doc) to see what
+Now you can navigate to http://localhost:8080/api/doc to see what
 APIs are available!
 
 ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)
@@ -402,7 +463,7 @@ It will print something like this:
 [2020-02-03 03:59:38 +0330] [80166] [INFO] Booting worker with pid: 80166
 ```
 
-Now you can navigate to [Swagger](http://localhost:8080/api/doc) to see what
+Now you can navigate to http://localhost:8080/api/doc to see what
 APIs are available!
 
 ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)

@@ -1,0 +1,40 @@
+version: "3.7"
+
+services:
+
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  shortener:
+    image: phlasch:dev
+    command: ./start-shortener.sh
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      PHLASCH_DB_HOST: database
+      PHLASCH_DB_PASSWORD: postgres
+      PHLASCH_SHORTENER_ORIGIN: http://localhost:9090
+
+  redirector:
+    image: phlasch:dev
+    command: ./start-redirector.sh
+    restart: always
+    ports:
+      - 9090:8080
+    environment:
+      PHLASCH_DB_HOST: database
+      PHLASCH_DB_PASSWORD: postgres
+
+  stats:
+    image: phlasch:dev
+    command: ./start-stats.sh
+    restart: always
+    ports:
+      - 7070:8080
+    environment:
+      PHLASCH_DB_HOST: database
+      PHLASCH_DB_PASSWORD: postgres
