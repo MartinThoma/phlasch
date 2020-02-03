@@ -22,6 +22,16 @@ jobs:
       install: pip install flake8
       before_script: skip
       script: flake8
+    - stage: integration test
+      name: "Python 3.7 - Integration Test"
+      python: 3.7
+      before_install: skip
+      install:
+        - pip install .
+        - pip install pytest-aiohttp
+      before_script:
+        - psql -c 'create database postgres;' -U postgres
+      script: pytest
     - stage: deploy
       name: "Build & Push Image"
       before_install: skip
