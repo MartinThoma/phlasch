@@ -152,5 +152,8 @@ travis_deploy.sh
 tests/
 run-tests.sh
 
+# docs
+docs/
+
 # deployment samples
 samples/
