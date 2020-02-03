@@ -39,7 +39,7 @@ services:
 
 2. Navigate to [Swagger](http://localhost:8080/api/doc)
 
-   ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger.png)
+   ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)
 
 ## Requirements
 
@@ -362,7 +362,7 @@ It will print something like this:
 Now you can navigate to [Swagger](http://localhost:8080/api/doc) to see what
 APIs are available!
 
-![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger.png)
+![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)
 
 To run a single app, run:
 
@@ -401,7 +401,7 @@ It will print something like this:
 Now you can navigate to [Swagger](http://localhost:8080/api/doc) to see what
 APIs are available!
 
-![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger.png)
+![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)
 
 To run a single app, run:
 
