@@ -18,7 +18,14 @@ as a docker image, a program, or an aiohttp library.
 
 ## Docker
 
-### Unified Deployment
+There are two approaches to deploying Phlasch.
+
+### Unified
+
+An all in one approach, which means the url shortener, redirector and
+the stats apps are all deployed as part of one service.
+
+For example:
 
 1. Deploy this `docker-compose.yml` file.
 
@@ -47,7 +54,12 @@ as a docker image, a program, or an aiohttp library.
 
    ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_all.png)
 
-### Divided Deployment
+### Divided
+
+A separated approach, which means the url shortener, redirector and
+the stats apps are all deployed separately as different services.
+
+For example:
 
 1. Deploy this `docker-compose.yml` file.
 
