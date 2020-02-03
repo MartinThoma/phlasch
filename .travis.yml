@@ -33,6 +33,16 @@ jobs:
       before_script:
         - psql -c 'create database travis_ci_test;' -U postgres
       script: pytest
+    - name: "Python 3.8 - Integration Test"
+      python: 3.8
+      env: PHLASCH_DB_NAME=travis_ci_test
+      before_install: skip
+      install:
+        - pip install .
+        - pip install pytest-aiohttp
+      before_script:
+        - psql -c 'create database travis_ci_test;' -U postgres
+      script: pytest
     - stage: deploy
       name: "Build & Push Image"
       before_install: skip
