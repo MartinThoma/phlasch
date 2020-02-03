@@ -419,3 +419,38 @@ It will print something like this:
 [2020-02-03 04:01:13 +0330] [80251] [INFO] Using worker: aiohttp.GunicornWebWorker
 [2020-02-03 04:01:13 +0330] [80254] [INFO] Booting worker with pid: 80254
 ```
+
+## Aiohttp library
+
+If the configurations are set, Phlasch can also be used as an aiohttp library.
+
+1. If you are using [alembic](https://alembic.sqlalchemy.org) as your
+   migration tool add the following lines to `alembic.ini`.
+
+   ``` .ini
+   [db]
+   script_location = %(location_of_phlasch_package)s/db/migrations
+   version_locations = %(location_of_phlasch_package)s/db/migrations/versions
+   ```
+
+If not, simply run the [upgrade](#upgrade) command described above in the
+migrators sections.
+
+2. Configure your app using the configure functions provided by the apps.
+
+``` python
+from phlasch.db.configure import configure as configure_db
+from phlasch.shortener.configure import configure as configure_shortener
+from phlasch.stats.configure import configure as configure_stats
+from phlasch.redirector.configure import configure as configure_redirector
+
+# your app
+app = Application()
+...
+# please keep this configure order intact
+configure_db(app)
+configure_shortener(app)
+configure_stats(app)
+configure_redirector(app)
+...
+```
