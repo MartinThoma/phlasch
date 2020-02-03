@@ -25,6 +25,7 @@ async def test_stats_list(cli, tables):
     assert response_json[0]['address'] == 'https://google.com'
     assert response_json[0]['shortcut'] == '1'
     assert response_json[0]['visits'] == 1
+    assert urlparse(response_json[0]['url']).path == '/1'
 
 
 async def test_stats_retrieve(cli, tables):
@@ -35,3 +36,4 @@ async def test_stats_retrieve(cli, tables):
     assert response_json['address'] == 'https://google.com'
     assert response_json['shortcut'] == '1'
     assert response_json['visits'] == 1
+    assert urlparse(response_json['url']).path == '/1'
