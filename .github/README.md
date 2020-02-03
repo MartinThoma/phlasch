@@ -16,26 +16,26 @@ as a docker image, a program, or an aiohttp library.
 
 1. Deploy this `docker-compose.yml` file.
 
-``` docker-compose.yml
-version: "3.7"
-
-services:
-
-  database:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: postgres
-
-  server:
-    image: phlasch
-    restart: always
-    ports:
-      - 8080:8080
-    environment:
-      PHLASCH_DB_HOST: database
-      PHLASCH_DB_PASSWORD: postgres
-```
+   ``` docker-compose.yml
+   version: "3.7"
+   
+   services:
+   
+     database:
+       image: postgres
+       restart: always
+       environment:
+         POSTGRES_PASSWORD: postgres
+   
+     server:
+       image: phlasch
+       restart: always
+       ports:
+         - 8080:8080
+       environment:
+         PHLASCH_DB_HOST: database
+         PHLASCH_DB_PASSWORD: postgres
+   ```
 
 2. Navigate to [Swagger](http://localhost:8080/api/doc)
 
