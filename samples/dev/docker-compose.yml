@@ -1,49 +1,18 @@
 version: "3.7"
 
-
 services:
 
   database:
     image: postgres
-    volumes:
-      - ./volumes/database:/var/lib/postgresql/data
-    networks:
-      - network
+    restart: always
     environment:
-      POSTGRES_USER: phlasch
-      POSTGRES_PASSWORD: phlasch
-      POSTGRES_DB: phlasch
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
+      POSTGRES_PASSWORD: postgres
 
   server:
     image: phlasch:dev
-    volumes:
-      - ../../phlasch:/app/phlasch
-      - ../../tests:/app/tests
+    restart: always
     ports:
       - 8080:8080
-    networks:
-      - network
     environment:
-      PHLASCH_DB_BACKEND: postgresql
-      PHLASCH_DB_USER: phlasch
-      PHLASCH_DB_PASSWORD: phlasch
       PHLASCH_DB_HOST: database
-      PHLASCH_DB_PORT: 5432
-      PHLASCH_DB_NAME: phlasch
-      PHLASCH_SHORTENER_BASE: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
-      PHLASCH_SHORTENER_SHORTEN_URL: shortener/shorten
-      PHLASCH_SHORTENER_ORIGIN: http://localhost:8080
-      PHLASCH_STATS_LIST_URL: stats/list
-      PHLASCH_STATS_RETRIEVE_URL: stats/retrieve
-    deploy:
-      replicas: 1
-      restart_policy:
-        condition: on-failure
-
-
-networks:
-  network:
+      PHLASCH_DB_PASSWORD: postgres

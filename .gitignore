@@ -131,6 +131,3 @@ dmypy.json
 # editors
 .vscode/
 .idea/
-
-# dev deployment sample volumes
-samples/dev/volumes/
