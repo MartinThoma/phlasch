@@ -113,7 +113,7 @@ it uses the following environment variables:
 
   Default: phlasch
 
-  If you're not using Phlasch as an aiohttp lib don't mind this, but
+  If you are not using Phlasch as an aiohttp lib don't mind this, but
   if you are, this is the app key which the database engine is set on after
   creation.
 
@@ -216,7 +216,7 @@ Action:
 As seen above, the command line interface provides some actions which can be
 taken.
 
-### Revisions
+### Migrations
 
 Phlasch database migrations are being tracked using revisions. Each time the
 database schema is changed in any app by Phlasch developers a revision is
@@ -287,3 +287,23 @@ INFO  [alembic.runtime.migration] Running downgrade bfd35ebcbeb5 -> , added link
 ```
 
 **WARNING**: SETTING DOWNGRADE TO BASE WILL DELETE EVERYTHING AND DROP ALL TABLES!
+
+**Revision**
+
+If you are contributing to Phlasch and happen to change database schemas,
+you can create a revision for that change.
+
+To create a revision for the DB app, run:
+
+``` bash
+python -m phlasch revision db "some message"
+```
+
+It will print something like this:
+
+```
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
+INFO  [alembic.ddl.postgresql] ...
+  Generating /app/phlasch/db/migrations/versions/1fb7a742b953_some_message.py ...  done
+```
