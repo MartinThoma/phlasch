@@ -12,6 +12,35 @@ Phlasch is a url shortener. It aims to be easy-to-use, flexible and
 performant. As a result of this philosophy, it has been designed to be usable
 as a program, a docker container or an aiohttp library.
 
+## Docker
+
+1. Deploy this `docker-compose.yml` file.
+
+``` docker-compose.yml
+version: "3.7"
+
+services:
+
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  server:
+    image: phlasch
+    restart: always
+    ports:
+      - 8080:8080
+    environment:
+      PHLASCH_DB_HOST: database
+      PHLASCH_DB_PASSWORD: postgres
+```
+
+2. Navigate to [Swagger](http://localhost:8080/api/doc)
+
+   ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger.png)
+
 ## Requirements
 
 - Python (\>=3.7)
