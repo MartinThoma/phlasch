@@ -2,6 +2,7 @@ from os import path
 from json.decoder import JSONDecodeError
 from aiohttp import web
 from aiohttp_swagger import swagger_path
+from phlasch.utils import get_origin
 from phlasch.db.settings import DB_ENGINE
 from phlasch.db.queries import create_link, update_link_shortcut
 from phlasch.shortener.validators import validate_url
@@ -38,11 +39,7 @@ async def shorten(request):
         shortcut = convert_base(pk)
         await update_link_shortcut(conn, pk, shortcut)
 
-    # calculate shortener origin
-    if SHORTENER_ORIGIN:
-        origin = SHORTENER_ORIGIN
-    else:
-        origin = f'{request.scheme}://{request.host}'
+    origin = get_origin(request, SHORTENER_ORIGIN)
 
     # return shortened url
     return web.json_response({

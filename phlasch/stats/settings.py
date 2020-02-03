@@ -14,3 +14,12 @@ STATS_RETRIEVE_URL = get_env_string(
     'PHLASCH_STATS_RETRIEVE_URL',
     default='stats/retrieve',
 )
+
+
+# ---------------------------------------------------------------------- views
+
+# get stats origin from environment variables
+STATS_ORIGIN = get_env_string(
+    'PHLASCH_STATS_ORIGIN',
+    default='',
+)

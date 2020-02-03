@@ -104,6 +104,7 @@ For example:
        environment:
          PHLASCH_DB_HOST: database
          PHLASCH_DB_PASSWORD: postgres
+         PHLASCH_STATS_ORIGIN: http://localhost:9090
    ```
 
 2. Navigate to http://localhost:8080/api/doc to see what APIs are available.
@@ -286,6 +287,17 @@ it uses the following environment variables:
 
   *Note*: It is set as a slashed url so that it can't be mistaken with a
   shortened url.
+
+- **PHLASCH_STATS_ORIGIN**
+
+  The origin of the shortened url.
+
+  Default: *nothing*
+
+  In case the Redirector app is deployed on another host or domain, set
+  this to the origin of that host or domain.
+
+  *Note*: If empty, it will use the origin of the Stats host or domain.
 
 ## CLI: Command Line Interface
 

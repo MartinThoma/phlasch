@@ -25,3 +25,10 @@ def get_env_list(key, default=None):
     default = [] if default is None else default
     value = os.environ.get(key)
     return value.split(';') if value else default
+
+
+# --------------------------------------------------- request variable getters
+
+# get the origin of the request
+def get_origin(request, override=''):
+    return override if override else f'{request.scheme}://{request.host}'

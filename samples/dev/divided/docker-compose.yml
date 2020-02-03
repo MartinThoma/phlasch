@@ -41,3 +41,4 @@ services:
     environment:
       PHLASCH_DB_HOST: database
       PHLASCH_DB_PASSWORD: postgres
+      PHLASCH_STATS_ORIGIN: http://localhost:9090
