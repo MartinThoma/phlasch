@@ -1,5 +1,9 @@
+language: python
+dist: xenial
+
 services:
   - docker
+  - postgresql
 
 git:
   depth: 3
@@ -11,6 +15,13 @@ branches:
 
 jobs:
   include:
+    - stage: linting
+      name: "Flake8"
+      python: 3.7
+      before_install: skip
+      install: pip install flake8
+      before_script: skip
+      script: flake8
     - name: "Build & Push Image"
       before_install: skip
       install: skip
