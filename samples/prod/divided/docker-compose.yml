@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: postgres
 
   shortener:
-    image: phlasch
+    image: bbmokhtari/phlasch
     command: ./start-shortener.sh
     restart: always
     ports:
@@ -20,7 +20,7 @@ services:
       PHLASCH_SHORTENER_ORIGIN: http://localhost:9090
 
   redirector:
-    image: phlasch
+    image: bbmokhtari/phlasch
     command: ./start-redirector.sh
     restart: always
     ports:
@@ -30,7 +30,7 @@ services:
       PHLASCH_DB_PASSWORD: postgres
 
   stats:
-    image: phlasch
+    image: bbmokhtari/phlasch
     command: ./start-stats.sh
     restart: always
     ports:

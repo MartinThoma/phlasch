@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: postgres
 
   server:
-    image: phlasch
+    image: bbmokhtari/phlasch
     restart: always
     ports:
       - 8080:8080

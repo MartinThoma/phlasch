@@ -41,7 +41,7 @@ For example:
          POSTGRES_PASSWORD: postgres
 
      server:
-       image: phlasch
+       image: bbmokhtari/phlasch
        restart: always
        ports:
          - 8080:8080
@@ -75,7 +75,7 @@ For example:
          POSTGRES_PASSWORD: postgres
 
      shortener:
-       image: phlasch
+       image: bbmokhtari/phlasch
        command: ./start-shortener.sh
        restart: always
        ports:
@@ -86,7 +86,7 @@ For example:
          PHLASCH_SHORTENER_ORIGIN: http://localhost:9090
 
      redirector:
-       image: phlasch
+       image: bbmokhtari/phlasch
        command: ./start-redirector.sh
        restart: always
        ports:
@@ -96,7 +96,7 @@ For example:
          PHLASCH_DB_PASSWORD: postgres
 
      stats:
-       image: phlasch
+       image: bbmokhtari/phlasch
        command: ./start-stats.sh
        restart: always
        ports:
