@@ -313,6 +313,10 @@ INFO  [alembic.ddl.postgresql] ...
 After migrating to the desired revision, either a single app or all apps can
 be run.
 
+**aiohttp**
+
+Apps can be run using the aiohttp server.
+
 To run all apps, run:
 
 ``` bash
@@ -327,12 +331,62 @@ It will print something like this:
 ```
 
 Now you can navigate to [Swagger](http://localhost:8080/api/doc) to see what
-is available!
+APIs are available!
 
 ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger.png)
 
 To run a single app, run:
 
 ``` bash
-python -m phlasch run shortener
+python -m phlasch run ${app_name}
+```
+
+It will print something like this:
+
+```
+======== Running on http://0.0.0.0:8080 ========
+(Press CTRL+C to quit)
+```
+
+**Gunicorn**
+
+Apps can be run using the Gunicorn wsgi server.
+
+To run all apps, run:
+
+``` bash
+gunicorn phlasch.runners:get_all_runnable \
+    --bind 0.0.0.0:8080 \
+    --worker-class aiohttp.GunicornWebWorker
+```
+
+It will print something like this:
+
+```
+[2020-02-03 03:59:38 +0330] [80163] [INFO] Starting gunicorn 20.0.4
+[2020-02-03 03:59:38 +0330] [80163] [INFO] Listening at: http://0.0.0.0:8080 (80163)
+[2020-02-03 03:59:38 +0330] [80163] [INFO] Using worker: aiohttp.GunicornWebWorker
+[2020-02-03 03:59:38 +0330] [80166] [INFO] Booting worker with pid: 80166
+```
+
+Now you can navigate to [Swagger](http://localhost:8080/api/doc) to see what
+APIs are available!
+
+![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger.png)
+
+To run a single app, run:
+
+``` bash
+gunicorn phlasch.runners:get_${app_name}_runnable \
+    --bind 0.0.0.0:8080 \
+    --worker-class aiohttp.GunicornWebWorker
+```
+
+It will print something like this:
+
+```
+[2020-02-03 04:01:13 +0330] [80251] [INFO] Starting gunicorn 20.0.4
+[2020-02-03 04:01:13 +0330] [80251] [INFO] Listening at: http://0.0.0.0:8080 (80251)
+[2020-02-03 04:01:13 +0330] [80251] [INFO] Using worker: aiohttp.GunicornWebWorker
+[2020-02-03 04:01:13 +0330] [80254] [INFO] Booting worker with pid: 80254
 ```
