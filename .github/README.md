@@ -433,24 +433,24 @@ If the configurations are set, Phlasch can also be used as an aiohttp library.
    version_locations = %(location_of_phlasch_package)s/db/migrations/versions
    ```
 
-If not, simply run the [upgrade](#upgrade) command described above in the
-migrators sections.
+   If not, simply run the [upgrade](#upgrade) command described above in the
+   migrators sections.
 
 2. Configure your app using the configure functions provided by the apps.
 
-``` python
-from phlasch.db.configure import configure as configure_db
-from phlasch.shortener.configure import configure as configure_shortener
-from phlasch.stats.configure import configure as configure_stats
-from phlasch.redirector.configure import configure as configure_redirector
-
-# your app
-app = Application()
-...
-# please keep this configure order intact
-configure_db(app)
-configure_shortener(app)
-configure_stats(app)
-configure_redirector(app)
-...
-```
+   ``` python
+   from phlasch.db.configure import configure as configure_db
+   from phlasch.shortener.configure import configure as configure_shortener
+   from phlasch.stats.configure import configure as configure_stats
+   from phlasch.redirector.configure import configure as configure_redirector
+   
+   # your app
+   app = Application()
+   ...
+   # please keep this configure order intact
+   configure_db(app)
+   configure_shortener(app)
+   configure_stats(app)
+   configure_redirector(app)
+   ...
+   ```
