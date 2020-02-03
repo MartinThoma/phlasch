@@ -22,7 +22,8 @@ jobs:
       install: pip install flake8
       before_script: skip
       script: flake8
-    - name: "Build & Push Image"
+    - stage: deploy
+      name: "Build & Push Image"
       before_install: skip
       install: skip
       before_script: skip
