@@ -1,5 +1,9 @@
 # Phlasch
 
+[![build](https://travis-ci.com/bbmokhtari/phlasch.svg?branch=master)](https://travis-ci.com/bbmokhtari/phlasch)
+[![pypi](https://img.shields.io/badge/pypi-package-f9d35f.svg)](https://pypi.org/project/phlasch/)
+[![docker](https://img.shields.io/badge/docker-image-1388e7.svg)](https://hub.docker.com/r/bbmokhtari/phlasch)
+
 A url shortener.
 
 ## Support the project
