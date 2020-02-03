@@ -10,7 +10,7 @@ services:
 
   shortener:
     image: phlasch:dev
-    build: ../..
+    build: ../../..
     command: ./start-shortener.sh
     restart: always
     ports:
@@ -22,7 +22,7 @@ services:
 
   redirector:
     image: phlasch:dev
-    build: ../..
+    build: ../../..
     command: ./start-redirector.sh
     restart: always
     ports:
@@ -33,7 +33,7 @@ services:
 
   stats:
     image: phlasch:dev
-    build: ../..
+    build: ../../..
     command: ./start-stats.sh
     restart: always
     ports:
