@@ -10,7 +10,7 @@ If you liked this project please consider giving it a star! ⭐️
 
 Phlasch is a url shortener. It aims to be easy-to-use, flexible and
 performant. As a result of this philosophy, it has been designed to be usable
-as a program, a docker container or an aiohttp library.
+as a docker image, a program, or an aiohttp library.
 
 ## Docker
 
@@ -253,7 +253,7 @@ created in that app. Revisions represent the points in which the database
 schema was changed, as a result we can upgrade or downgrade to any revision
 at any time.
 
-**Upgrade**
+#### Upgrade
 
 Each time Phlasch is installed or is updated, it is a good idea to upgrade
 to the latest revision (or head) for each database-using app, in the current
@@ -273,7 +273,7 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.runtime.migration] Running upgrade  -> bfd35ebcbeb5, added link table
 ```
 
-**History**
+#### History
 
 To log the revisions of the DB app, run:
 
@@ -296,7 +296,7 @@ Path: /app/phlasch/db/migrations/versions/bfd35ebcbeb5_added_link_table.py
 
 ```
 
-**Downgrade**
+#### Downgrade
 
 If we encounter any weird database situations after an upgrade we can always
 downgrade to the previous revisions.
@@ -317,7 +317,7 @@ INFO  [alembic.runtime.migration] Running downgrade bfd35ebcbeb5 -> , added link
 
 **WARNING**: SETTING DOWNGRADE TO BASE WILL DELETE EVERYTHING AND DROP ALL TABLES!
 
-**Revision**
+#### Revision
 
 If you are contributing to Phlasch and happen to change database schemas,
 you can create a revision for that change.
@@ -342,7 +342,7 @@ INFO  [alembic.ddl.postgresql] ...
 After migrating to the desired revision, either a single app or all apps can
 be run.
 
-**aiohttp**
+#### Aiohttp
 
 Apps can be run using the aiohttp server.
 
@@ -377,7 +377,7 @@ It will print something like this:
 (Press CTRL+C to quit)
 ```
 
-**Gunicorn**
+#### Gunicorn
 
 Apps can be run using the Gunicorn wsgi server.
 
