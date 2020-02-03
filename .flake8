@@ -1,0 +1,10 @@
+[flake8]
+exclude =
+    # remove auto-generated migrations
+    migrations,
+    # remove built distribution
+    dist,
+    # remove virtual environment packages
+    venv,
+    # remove cache
+    __pycache__
