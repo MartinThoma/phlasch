@@ -45,7 +45,7 @@ as a docker image, a program, or an aiohttp library.
 
 2. Navigate to http://localhost:8080/api/doc to see what APIs are available.
 
-   ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)
+   ![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_all.png)
 
 ### Divided Deployment
 
@@ -427,7 +427,7 @@ It will print something like this:
 Now you can navigate to http://localhost:8080/api/doc to see what
 APIs are available!
 
-![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)
+![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_all.png)
 
 To run a single app, run:
 
@@ -466,7 +466,7 @@ It will print something like this:
 Now you can navigate to http://localhost:8080/api/doc to see what
 APIs are available!
 
-![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_screenshot.png)
+![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger_all.png)
 
 To run a single app, run:
 
