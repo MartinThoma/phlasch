@@ -22,7 +22,7 @@ install_requires = [
 
 setuptools.setup(
     name='phlasch',
-    version=getenv('TRAVIS_TAG', '0.0.0'),
+    version=getenv('TRAVIS_TAG', default='0.0.0'),
     description='A url shortener.',
     long_description=long_description,
     long_description_content_type='text/markdown',

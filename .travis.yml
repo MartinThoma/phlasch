@@ -54,3 +54,17 @@ jobs:
         script: sh travis_deploy.sh
         on:
           tags: true
+    - name: "Build Dists & Upload to PyPI"
+      python: 3.7
+      before_install: skip
+      install: skip
+      before_script: skip
+      script: skip
+      deploy:
+        provider: pypi
+        skip-cleanup: true
+        user: $PYPI_USERNAME
+        password: $PYPI_PASSWORD
+        distributions: "sdist bdist_wheel"
+        on:
+          tags: true
