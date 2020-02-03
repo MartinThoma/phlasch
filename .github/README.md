@@ -216,7 +216,7 @@ Action:
 As seen above, the command line interface provides some actions which can be
 taken.
 
-### Migrations
+### Migrators
 
 Phlasch database migrations are being tracked using revisions. Each time the
 database schema is changed in any app by Phlasch developers a revision is
@@ -306,4 +306,33 @@ INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
 INFO  [alembic.runtime.migration] Will assume transactional DDL.
 INFO  [alembic.ddl.postgresql] ...
   Generating /app/phlasch/db/migrations/versions/1fb7a742b953_some_message.py ...  done
+```
+
+### Runners
+
+After migrating to the desired revision, either a single app or all apps can
+be run.
+
+To run all apps, run:
+
+``` bash
+python -m phlasch run all
+```
+
+It will print something like this:
+
+```
+======== Running on http://0.0.0.0:8080 ========
+(Press CTRL+C to quit)
+```
+
+Now you can navigate to [Swagger](http://localhost:8080/api/doc) to see what
+is available!
+
+![image](https://raw.githubusercontent.com/bbmokhtari/phlasch/master/docs/_static/swagger.png)
+
+To run a single app, run:
+
+``` bash
+python -m phlasch run shortener
 ```
